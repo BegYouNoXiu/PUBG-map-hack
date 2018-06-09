@@ -46,7 +46,7 @@ VOID Unload(PDRIVER_OBJECT  DriverObject)
 
 	UNICODE_STRING usDosDeviceName;
 
-	RtlInitUnicodeString(&usDosDeviceName, L"\\DosDevices\\MapHackInterface");
+	RtlInitUnicodeString(&usDosDeviceName, L"\\DosDevices\\aliPayCheck");
 	IoDeleteSymbolicLink(&usDosDeviceName);
 
 	IoDeleteDevice(DriverObject->DeviceObject);
@@ -177,8 +177,8 @@ NTSTATUS DriverEntry(_In_ PDRIVER_OBJECT  pDriverObject, _In_ PUNICODE_STRING Re
 
 	NTSTATUS status = STATUS_SUCCESS;
 
-	RtlInitUnicodeString(&dev, L"\\Device\\MapHackInterface");
-	RtlInitUnicodeString(&dos, L"\\DosDevices\\MapHackInterface");
+	RtlInitUnicodeString(&dev, L"\\Device\\aliPayCheck");
+	RtlInitUnicodeString(&dos, L"\\DosDevices\\aliPayCheck");
 
 	status = IoCreateDevice(pDriverObject, 0, &dev, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &pDeviceObject);
 
